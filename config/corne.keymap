@@ -46,7 +46,7 @@
             //                    | CTRL|     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&alttab       &kp N1  &kp N2         &kp N3               &kp N4  &kp N5             &kp N6    &kp N7    &kp N8     &kp N9  &kp N0            &kp BSPC
+&kp TAB       &kp N1  &kp N2         &kp N3               &kp N4  &kp N5             &kp N6    &kp N7    &kp N8     &kp N9  &kp N0            &kp BSPC
 &kp LEFT_GUI  &trans  &kp LG(LS(S))  &mt PAGE_UP PAGE_UP  &trans  &kp LG(LA(K))      &trans    &kp UP    &trans     &trans  &kp C_PLAY_PAUSE  &kp C_VOLUME_UP
 &kp LSHFT     &trans  &trans         &kp PAGE_DOWN        &trans  &kp LC(RA(DEL))    &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &kp C_MUTE        &kp C_VOLUME_DOWN
                                      &kp LCTRL            &trans  &kp SPACE          &kp RET   &trans    &kp RALT
