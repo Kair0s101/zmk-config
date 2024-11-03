@@ -5,6 +5,7 @@
  */
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/rgb.h>
@@ -19,6 +20,15 @@
         };
     };
 
+    macros {
+        alttab: alttab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&alttab>;
+            label = "ALTTAB";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -30,10 +40,10 @@
             //                    | LSHFT | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E       &kp R  &kp T        &kp Y    &kp U  &kp I      &kp O    &kp P     &kp BSPC
-&kp LGUI   &kp A  &kp S  &kp D       &kp F  &kp G        &kp H    &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LCTRL  &kp Z  &kp X  &kp C       &kp V  &kp B        &kp N    &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                         &kp LSHIFT  &mo 1  &kp SPACE    &kp RET  &mo 2  &kp RALT
+&mt ESC TAB       &kp Q  &kp W  &kp E       &kp R  &kp T        &kp Y    &kp U  &kp I      &kp O    &kp P     &kp BSPC
+&kp LGUI          &kp A  &kp S  &kp D       &kp F  &kp G        &kp H    &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LEFT_CONTROL  &kp Z  &kp X  &kp C       &kp V  &kp B        &kp N    &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
+                                &kp LSHIFT  &mo 1  &kp SPACE    &kp RET  &mo 2  &kp RALT
             >;
         };
 
@@ -45,10 +55,10 @@
             //                    | CTRL|     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp LA(TAB)  &kp N1  &kp N2  &kp N3     &kp N4  &kp N5             &kp N6    &kp N7    &kp N8     &kp N9  &kp N0  &kp BSPC
-&trans       &trans  &trans  &trans     &trans  &trans             &trans    &kp UP    &trans     &trans  &trans  &trans
-&kp LSHFT    &trans  &trans  &trans     &trans  &kp LC(RA(DEL))    &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans  &trans
-                             &kp LCTRL  &trans  &kp SPACE          &kp RET   &trans    &kp RALT
+&alttab       &kp N1  &kp N2         &kp N3               &kp N4  &kp N5             &kp N6    &kp N7    &kp N8     &kp N9  &kp N0            &kp BSPC
+&kp LEFT_GUI  &trans  &kp LG(LS(S))  &mt PAGE_UP PAGE_UP  &trans  &kp LG(LA(K))      &trans    &kp UP    &trans     &trans  &kp C_PLAY_PAUSE  &kp C_VOLUME_UP
+&kp LSHFT     &trans  &trans         &kp PAGE_DOWN        &trans  &kp LC(RA(DEL))    &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &kp K_MUTE        &kp C_VOLUME_DOWN
+                                     &kp LCTRL            &trans  &kp SPACE          &kp RET   &trans    &kp RALT
             >;
         };
 
@@ -69,7 +79,7 @@
 
         Macro_3 {
             bindings = <
-&tog 3      &none          &none          &none          &none  &none    &none            &none            &rgb_ug RGB_BRI  &none  &none  &none
+&tog 3      &none          &none          &none          &none  &none    &bl BL_TOG       &bl BL_CYCLE     &rgb_ug RGB_BRI  &none  &none  &none
 &bt BT_CLR  &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &none  &none    &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &rgb_ug RGB_BRD  &none  &none  &none
 &none       &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &none  &none    &none            &none            &none            &none  &none  &none
                                           &none          &none  &none    &none            &none            &none
