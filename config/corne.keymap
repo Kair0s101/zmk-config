@@ -18,6 +18,11 @@
             bindings = <&tog 3>;
             key-positions = <24 37 40 35>;
         };
+
+        del {
+            bindings = <&kp DEL>;
+            key-positions = <10 11>;
+        };
     };
 
     keymap {
